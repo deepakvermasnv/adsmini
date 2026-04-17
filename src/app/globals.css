@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #080807;
+  --color-surface:    #111110;
+  --color-surface-2:  #191917;
+  --color-border:     #252523;
+  --color-foreground: #ffffff;
+  --color-muted:      #888880;
+
+  /* Logo Orange Palette */
+  --color-orange-300: #ffb884;
+  --color-orange-400: #fda94b; /* Primary Logo Orange */
+  --color-orange-500: #e88d2d;
+  --color-orange-600: #cc741a;
+
+  --font-sans: var(--font-inter);
+
+  --animate-fade-up:   fade-up   0.7s ease-out forwards;
+  --animate-fade-in:   fade-in   0.5s ease-out forwards;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Utility classes */
+.orange-gradient-text {
+  background: linear-gradient(95deg, #fda94b 0%, #ffb884 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.card:hover {
+  border-color: #fda94b;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px 0 rgba(253,169,75,0.15);
+}
+
+.orange-glow {
+  box-shadow: 0 4px 20px 0 rgba(253,169,75,0.3);
+}
+.orange-glow:hover {
+  box-shadow: 0 8px 30px 0 rgba(253,169,75,0.5);
+}
+
+/* Noise texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
