@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#080807] pt-[72px]">
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center overflow-hidden bg-[#080807] pt-[84px] md:pt-[72px] pb-12 md:pb-0">
 
       {/* Subtle grid pattern */}
       <div
@@ -15,33 +15,33 @@ export default function Hero() {
       />
 
       {/* Radial orange glow — background */}
-      <div className="pointer-events-none absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-orange-500/5 blur-[120px]" />
+      <div className="pointer-events-none absolute top-1/2 left-0 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-orange-500/5 blur-[80px] md:blur-[120px]" />
 
       {/* Content wrapper */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
           
           {/* Left Column: Content */}
-          <div className="text-left animate-fade-up">
+          <div className="text-center lg:text-left animate-fade-up">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2.5 border border-orange-500/30 bg-orange-500/5 text-orange-400 text-xs font-semibold uppercase tracking-[0.15em] px-4 py-2 rounded-full mb-8">
+            <div className="inline-flex items-center gap-2.5 border border-orange-500/30 bg-orange-500/5 text-orange-400 text-[10px] md:text-xs font-semibold uppercase tracking-[0.15em] px-4 py-2 rounded-full mb-6 md:mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
               Performance Marketing Agency
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] md:leading-[1.1] text-white mb-6">
               Turn Ad Spend Into<br />
               <span className="orange-gradient-text">Predictable Revenue</span>
             </h1>
 
             {/* Sub */}
-            <p className="text-lg md:text-xl text-[#888880] max-w-xl mb-12 leading-relaxed">
+            <p className="text-base md:text-xl text-[#888880] max-w-xl mx-auto lg:mx-0 mb-10 md:mb-12 leading-relaxed">
               We build data-driven lead generation systems that scale your business profitably — more qualified leads, lower CAC, higher ROAS.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-start gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Link
                 href="/contact"
                 id="hero-primary-cta"

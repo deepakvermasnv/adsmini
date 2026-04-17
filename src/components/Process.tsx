@@ -23,7 +23,7 @@ export default function Process() {
   ];
 
   return (
-    <section id="process" className="py-28 bg-[#0C0C0B] relative">
+    <section id="process" className="py-16 md:py-28 bg-[#0C0C0B] relative">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#252523] to-transparent" />
       <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#252523] to-transparent" />
 

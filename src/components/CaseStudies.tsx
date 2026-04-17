@@ -27,7 +27,7 @@ export default function CaseStudies() {
   ];
 
   return (
-    <section id="cases" className="py-28 bg-[#080807] relative">
+    <section id="cases" className="py-16 md:py-28 bg-[#080807] relative">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#252523] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6">

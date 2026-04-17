@@ -24,15 +24,15 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-28 bg-[#080807] relative">
+    <section id="testimonials" className="py-16 md:py-28 bg-[#080807] relative">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#252523] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-2xl mb-16">
+        <div className="max-w-2xl mb-12 md:mb-16">
           <span className="text-xs font-bold uppercase tracking-[0.18em] text-orange-500 mb-4 block">
             Testimonials
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
             Clients Who{" "}
             <span className="orange-gradient-text">Scaled With Us</span>
           </h2>

@@ -48,9 +48,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="fixed top-0 inset-x-0 z-50 flex justify-center px-4 pt-4 transition-all duration-300 pointer-events-none">
+    <div className="fixed top-0 inset-x-0 z-50 flex justify-center px-2 sm:px-4 pt-2 sm:pt-4 transition-all duration-300 pointer-events-none">
       <nav 
-        className={`w-full max-w-7xl flex items-center justify-between px-6 h-[64px] rounded-2xl border transition-all duration-500 pointer-events-auto
+        className={`w-full max-w-7xl flex items-center justify-between px-4 sm:px-6 h-[56px] sm:h-[64px] rounded-xl sm:rounded-2xl border transition-all duration-500 pointer-events-auto
           ${scrolled 
             ? "border-white/10 bg-[#080807]/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] h-[68px]" 
             : "border-transparent bg-transparent"
@@ -142,27 +142,48 @@ export default function Navbar() {
 
       {/* Mobile menu overlay */}
       {open && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-[#080807]/95 backdrop-blur-2xl animate-fade-in pointer-events-auto overflow-y-auto">
-          <div className="flex flex-col items-center pt-24 pb-12 gap-6 px-10">
+        <div className="lg:hidden fixed inset-0 z-[60] bg-[#080807] pointer-events-auto flex flex-col pt-20 px-6 h-screen overflow-y-auto">
+          {/* Decorative background glow */}
+          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-orange-500/10 blur-[100px] -z-10" />
+          
+          <div className="flex flex-col gap-6">
             {links.map((l, i) => (
-              <div key={l.label} className="w-full text-center">
-                <Link 
-                  href={l.href} 
-                  onClick={() => !l.subItems && setOpen(false)} 
-                  className="text-2xl font-bold text-white/60 hover:text-orange-400 transition-colors animate-fade-up block mb-2"
-                  style={{ animationDelay: `${i * 0.05}s` }}
-                >
-                  {l.label}
-                </Link>
+              <div key={l.label} className="w-full border-b border-white/5 pb-4">
+                <div className="flex items-center justify-between group">
+                  <Link 
+                    href={l.href} 
+                    onClick={() => {
+                      if(!l.subItems) setOpen(false);
+                      else setActiveDropdown(activeDropdown === l.label ? null : l.label);
+                    }} 
+                    className={`text-2xl font-bold transition-all duration-300 ${activeDropdown === l.label || (l.subItems && activeDropdown === l.label) ? "text-orange-500" : "text-white/80"}`}
+                    style={{ animationDelay: `${i * 0.05}s` }}
+                  >
+                    {l.label}
+                  </Link>
+                  {l.subItems && (
+                    <button 
+                      onClick={() => setActiveDropdown(activeDropdown === l.label ? null : l.label)}
+                      className="p-2 rounded-lg bg-white/5 text-white/50"
+                    >
+                      <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${activeDropdown === l.label ? "rotate-180 text-orange-500" : ""}`} />
+                    </button>
+                  )}
+                </div>
+
+                {/* Mobile Sub-menu */}
                 {l.subItems && (
-                  <div className="flex flex-col gap-3 mt-2">
+                  <div 
+                    className={`flex flex-col gap-4 mt-6 ml-4 overflow-hidden transition-all duration-500 ${activeDropdown === l.label ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
+                  >
                     {l.subItems.map(sub => (
                       <Link 
                         key={sub.label} 
                         href={sub.href} 
                         onClick={() => setOpen(false)}
-                        className="text-base text-[#888880] hover:text-white transition-colors"
+                        className="text-lg font-medium text-[#888880] hover:text-white transition-colors flex items-center gap-3"
                       >
+                        <span className="w-1.5 h-[1px] bg-orange-500/50" />
                         {sub.label}
                       </Link>
                     ))}
@@ -170,20 +191,28 @@ export default function Navbar() {
                 )}
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 pb-10">
             <Link 
               href="/contact" 
               onClick={() => setOpen(false)} 
-              className="mt-4 w-full max-w-xs bg-orange-500 text-white font-bold text-center py-4 rounded-2xl shadow-xl orange-glow"
+              className="w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-orange-400 text-white font-bold py-5 rounded-2xl shadow-[0_10px_40px_rgba(253,169,75,0.2)]"
             >
-              Book Consultation
+              Book Consultation <ArrowUpRight className="w-5 h-5" />
             </Link>
-            <button 
-              onClick={() => setOpen(false)} 
-              className="mt-8 p-4 rounded-full border border-white/10 text-white/50 hover:text-white"
-            >
-              <X className="w-8 h-8" />
-            </button>
+            
+            <div className="mt-10 pt-10 border-t border-white/5 text-center">
+              <p className="text-[#555] text-xs uppercase tracking-widest font-semibold">AdsMini Agency</p>
+            </div>
           </div>
+          
+          <button 
+            onClick={() => setOpen(false)} 
+            className="absolute top-6 right-6 p-4 rounded-xl bg-white/5 text-white/50 hover:text-white transition-colors"
+          >
+            <X className="w-6 h-6" />
+          </button>
         </div>
       )}
     </div>

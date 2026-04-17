@@ -46,7 +46,7 @@ const categories = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-28 bg-[#080807] relative">
+    <section id="services" className="py-16 md:py-28 bg-[#080807] relative">
       {/* Faint top border line */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#252523] to-transparent" />
 
