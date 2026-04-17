@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cta from "@/components/Cta";
 import Faq from "@/components/Faq";
-import { Zap, Monitor, Rocket, MousePointerSquare } from "lucide-react";
+import { Zap, Monitor, Rocket, MousePointer2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "High-Converting Funnels & Websites | AdsMini",
@@ -71,7 +71,7 @@ export default function FunnelsWebsitesPage() {
                 <p className="text-[#888880] text-sm leading-relaxed">Strategic funnel mapping to upsell, cross-sell, and maximize the lifetime value of every customer you acquire.</p>
               </div>
               <div className="p-8 rounded-2xl bg-[#111110] border border-[#252523]">
-                <MousePointerSquare className="w-10 h-10 text-orange-500 mb-6" />
+                <MousePointer2 className="w-10 h-10 text-orange-500 mb-6" />
                 <h3 className="text-white font-bold text-xl mb-4">CRO Focused</h3>
                 <p className="text-[#888880] text-sm leading-relaxed">Continuous A/B testing of headlines, buttons, and forms to squeeze every bit of profit from your traffic.</p>
               </div>

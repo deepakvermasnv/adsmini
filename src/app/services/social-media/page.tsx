@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cta from "@/components/Cta";
 import Faq from "@/components/Faq";
-import { Instagram, Users, Sparkles, Share2 } from "lucide-react";
+import { Users, Sparkles, Share2, Layout } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Social Media Management | AdsMini",
@@ -71,7 +71,7 @@ export default function SocialMediaPage() {
                 <p className="text-[#888880] text-sm leading-relaxed">We don't just chase followers; we build fans. Strategic engagement to turn casual scrollers into brand advocates.</p>
               </div>
               <div className="p-8 rounded-2xl bg-[#111110] border border-[#252523]">
-                <Instagram className="w-10 h-10 text-orange-500 mb-6" />
+                <Layout className="w-10 h-10 text-orange-500 mb-6" />
                 <h3 className="text-white font-bold text-xl mb-4">Platform Strategy</h3>
                 <p className="text-[#888880] text-sm leading-relaxed">Tailored strategies for Instagram, LinkedIn, and Facebook to ensure your brand's voice is consistent yet optimized for each app.</p>
               </div>
